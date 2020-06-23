@@ -1,0 +1,52 @@
+<div>
+  <mat-toolbar style="height: 120px;" color="primary">
+    <table class="header">
+      <tr>
+        <td><span>MR Colecionáveis</span></td>
+        <td>
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="Pesquisar" aria-label="Produto" [matAutocomplete]="auto"
+              [formControl]="produtoCtrl">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let produto of filteredProdutos | async" [value]="produto.nome">
+                <img aria-hidden [src]="produto.imgUrl" height="25">
+                <span>{{produto.nome | slice:0:33}}</span> |
+                <span><b>R$ {{produto.preco}}</b></span>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </td>
+        <td><span>Carrinho de compas</span></td>
+      </tr>
+    </table>
+  </mat-toolbar>
+  <mat-toolbar color="secondary">
+    <table class="header">
+      <tr>
+        <td>
+          <button mat-button [matMenuTriggerFor]="menu" style="width: 100%">Catálogo</button>
+          <mat-menu #menu="matMenu">
+
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+
+          </mat-menu>
+        </td>
+        <td>Novidades</td>
+        <td>Promoções</td>
+      </tr>
+    </table>
+  </mat-toolbar>
+</div>
+
+<div style="min-height: 80%;">
+
+  <router-outlet></router-outlet>
+
+</div>
+
+<mat-toolbar color="secondary">
+  <span>MR Colecionáveis</span>
+  <span>Barra de Pesquisa</span>
+  <span>Carrinho de compas</span>
+</mat-toolbar>
