@@ -30,5 +30,9 @@ export class AppComponent {
     return this.produtoService.produtos.filter(produto => produto.nome.toLowerCase().indexOf(filterValue.toLowerCase()) >= 0);
   }
 
+  public pesquisaClicked(produtoNome: string) {
+    alert(produtoNome);
+  }
+
 }
 

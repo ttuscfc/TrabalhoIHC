@@ -1,0 +1,3 @@
+- Vimos que para o nosso publico alvo, as imagens dos produtos são muito importantes. Por isso ampliamos bastante o tamanho das imagens no Projeto de Interfaces.
+
+- Notamos que o nosso publico alvo gosta de especular e buscar coisas que eles conhecem. Por isso colocamos uma barra de pesquisa que já mostra o produto instantaneamente.

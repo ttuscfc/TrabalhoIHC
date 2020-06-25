@@ -1,13 +1,15 @@
-table.header {
-    width: 100%;  
-    
+.header {
+    height: 120px;
+    background-color: whitesmoke;
+}
+
+.header table {
+    width: 100%;      
 }
 
 .header td {
     text-align: center;
-    border: 1px solid black;  
 }
 
-.barra-pesquisa {
-    
-}
+
+
