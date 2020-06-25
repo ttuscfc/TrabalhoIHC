@@ -9,9 +9,18 @@
               [formControl]="produtoCtrl">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let produto of filteredProdutos | async" [value]="produto.nome">
-                <img aria-hidden [src]="produto.imgUrl" height="25">
-                <span>{{produto.nome | slice:0:33}}</span> |
-                <span><b>R$ {{produto.preco}}</b></span>
+                <table>
+                  <tr>
+                    <td>
+                      <img aria-hidden [src]="produto.imgUrl" style="height: 65px;" />
+                    </td>
+                    <td>
+                      {{produto.nome | slice:0:22}} | <b>R$ {{produto.preco}}</b>
+                    </td>
+                  </tr>
+                </table>
+
+
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>

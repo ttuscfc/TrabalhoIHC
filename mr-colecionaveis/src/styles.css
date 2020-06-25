@@ -7,3 +7,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-menu-panel {
     min-width: 500px !important;
 }
+
+.mat-option {
+    height: 100px !important;
+}
