@@ -1,0 +1,34 @@
+<form>
+    <table align="center" style="margin-bottom: 20px; margin-top: 20px;">
+        <tr>
+            <td>
+                <img src="../../../assets/default_person.jpg" width="85px"
+                    style="display: block; margin: auto; margin-bottom: 35px; border-radius: 25px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field style="display: block; margin: auto;">
+                    <mat-label>Email</mat-label>
+                    <input #email matInput type="email" autofocus>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field style="display: block; margin: auto;">
+                    <mat-label>Senha</mat-label>
+                    <input #senha matInput type="password">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div mat-dialog-actions>
+                    <button mat-raised-button style="margin: auto;"
+                        (click)="entrar(email.value, senha.value)">Entrar</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>

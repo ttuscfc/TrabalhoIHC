@@ -9,7 +9,7 @@
             [formControl]="produtoCtrl"
             style="width: 60%; border-radius: 10px; text-align: left; border: 2.5px solid #F48221; padding: 7px;">
           <mat-autocomplete class="search" #auto="matAutocomplete">
-            <mat-option *ngFor="let produto of filteredProdutos | async" (click)="pesquisaClicked(produto.nome)">
+            <mat-option *ngFor="let produto of filteredProdutos | async" (click)="verDetalhes(produto)">
               <table>
                 <tr>
                   <td>
@@ -27,7 +27,7 @@
 
         </td>
         <td width="15%">
-          Login
+          <button (click)="abirLogin()" mat-button>LOGIN</button>
         </td>
       </tr>
     </table>

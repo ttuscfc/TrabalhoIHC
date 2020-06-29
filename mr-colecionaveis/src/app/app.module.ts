@@ -24,6 +24,7 @@ import ptBr from '@angular/common/locales/pt';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DetalheComponent } from './components/detalhe/detalhe.component';
+import { LoginComponent } from './components/login/login.component';
 
 registerLocaleData(ptBr)
 
@@ -33,6 +34,7 @@ registerLocaleData(ptBr)
     HomeComponent,
     CarrinhoComponent,
     DetalheComponent,
+    LoginComponent,
 
   ],
   imports: [
