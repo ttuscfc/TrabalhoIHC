@@ -4,26 +4,27 @@
       <tr>
         <td width="15%"><img src="../assets/logo.png" style="height: 120px; display: block; margin-left: 0px;" /></td>
         <td>
-          <mat-form-field style="width: 60%;">
-            <input matInput placeholder="Digite aqui o que você precisa" aria-label="Produto" [matAutocomplete]="auto"
-              [formControl]="produtoCtrl">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let produto of filteredProdutos | async" (click)="pesquisaClicked(produto.nome)">
-                <table>
-                  <tr>
-                    <td>
-                      <img aria-hidden [src]="produto.imgUrl" style="height: 65px;" />
-                    </td>
-                    <td>
-                      {{produto.nome | slice:0:22}} | <b>R$ {{produto.preco}}</b>
-                    </td>
-                  </tr>
-                </table>
+
+          <input matInput placeholder="Digite aqui o que você precisa" aria-label="Produto" [matAutocomplete]="auto"
+            [formControl]="produtoCtrl"
+            style="width: 60%; border-radius: 10px; text-align: left; border: 2.5px solid #F48221; padding: 7px;">
+          <mat-autocomplete class="search" #auto="matAutocomplete">
+            <mat-option *ngFor="let produto of filteredProdutos | async" (click)="pesquisaClicked(produto.nome)">
+              <table>
+                <tr>
+                  <td>
+                    <img aria-hidden [src]="produto.imgUrl" style="height: 65px;" />
+                  </td>
+                  <td>
+                    {{produto.nome | slice:0:22}} | <b>{{produto.preco  | currency:'BRL':'symbol':'1.2-2' }}</b>
+                  </td>
+                </tr>
+              </table>
 
 
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
+            </mat-option>
+          </mat-autocomplete>
+
         </td>
         <td width="15%">
           Login

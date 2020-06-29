@@ -1,0 +1,48 @@
+<div style="position: relative; padding: 20px;">
+    <mat-dialog-content class="mat-typography">
+        <table>
+            <tr>
+                <td rowspan="4">
+                    <div style="height: 300px; width: 300px; overflow: hidden;" id="crop" (mouseout)="mouseOut()">
+                        <img [src]="p.imgUrl" [style]="estiloImg" (mousemove)="imgZoom($event)" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>{{p.nome}}</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Descrição do produto, descrição do produto, descrição do produto, descrição do produto, descrição
+                        do
+                        produto, descrição do produto, descrição do produto, descrição do produto, descrição do produto,
+                        descrição do produto, descrição do produto.
+                    </p>
+                    <p>Descrição do produto, descrição do produto, descrição do produto, descrição do produto, descrição
+                        do
+                        produto, descrição do produto, descrição do produto, descrição do produto, descrição do produto,
+                        descrição do produto, descrição do produto.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1>Preço: {{p.preco | currency:'BRL':'symbol':'1.2-2' }}</h1>
+                </td>
+            </tr>
+        </table>
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align=" end">
+        <button mat-icon-button mat-dialog-close style="position: absolute; top: 0px; right: 0px;">
+            <mat-icon style="color: red;">cancel</mat-icon>
+        </button>
+        <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial
+            style="margin: auto; margin-top: 10px; display: block; background-color: #008F97; color: white;">
+            COLOCAR NO CARRINHO <mat-icon>shopping_cart</mat-icon>
+        </button>
+    </mat-dialog-actions>
+</div>

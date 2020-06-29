@@ -8,6 +8,40 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     min-width: 500px !important;
 }
 
-.mat-option {
+.search .mat-option  {
     height: 100px !important;
+}
+
+
+/* --------------------------------- SCROLL BAR ---------------------------------------- */
+/* width */
+::-webkit-scrollbar {
+    width: 8px;    
+  }  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 2px;
+  }   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #008F97; 
+    border-radius: 4px;
+  }  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00595e; 
+  }
+
+/*-------------------*/
+
+.nota {
+    background-color: #00595e;
+    color: white;
+}
+]
+.nota span{
+    display: block;
+    margin:auto !important;
+    text-align: center !important;
 }

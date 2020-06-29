@@ -12,19 +12,19 @@
             <table height="100%">
                 <tr>
                     <td>
-                        <img [src]="p.imgUrl" />
+                        <img [src]="p.imgUrl" (click)="verDetalhes(p)" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span style="display: block; margin: auto;">
+                        <span style="display: block; margin: auto;" (click)="verDetalhes(p)">
                             {{p.nome}}
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span
+                        <span (click)="verDetalhes(p)"
                             style="display: block; margin: auto; margin-top: 10px; font-weight: bold; font-size: 22px; text-align: center;">
                             {{p.preco | currency:'BRL':'symbol':'1.2-2' }}
                         </span>
@@ -32,9 +32,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <button mat-raised-button
+                        <button mat-raised-button (click)="addCarrinho(p)"
                             style="margin: auto; margin-top: 10px; display: block; background-color: #008F97; color: white;">
-                            COLOCAR NO CARRINHO
+                            COLOCAR NO CARRINHO <mat-icon>shopping_cart</mat-icon>
                         </button>
                     </td>
                 </tr>
@@ -46,13 +46,72 @@
         </div>
     </div>
     <div class="carrinho" [style]="carrinhoEstilo">
-        <span>FILTRAR</span>
-        <div>
-            Preço Máximo: {{value | currency:'BRL'}}<br />
-            <mat-slider color="primary" [(ngModel)]="value" thumbLabel style="width: 100%;" tickInterval="50" min="1"
-                max="8000">
-            </mat-slider>
+        <div style="background-color: whitesmoke; padding: 12px; border-radius: 15px; margin-top: 10px;">
+            <div class="filterItem"
+                style="border: 1px solid rgba(0,0,0,0); border-radius: 10px; padding: 4px; margin-bottom: 4px;">
+                <span style="display: block; margin: auto; text-align: center; font-weight: bold;">
+                    ORDENAR POR
+                </span>
+
+                <mat-select disableRipple [(value)]="selectedOrderBy"
+                    style="border: 1px solid black; border-radius: 10px; padding: 7px;">
+                    <mat-option value="Maior Preço">Maior Preço</mat-option>
+                    <mat-option value="Menor Preço">Menor Preço</mat-option>
+                    <mat-option value="Nome A-Z">Nome A-Z</mat-option>
+                    <mat-option value="Nome Z-A">Nome Z-A</mat-option>
+                </mat-select>
+            </div>
+
+            <div class="filterItem"
+                style="border: 1px solid rgba(0,0,0,0); border-radius: 10px; padding: 4px; margin-bottom: 4px;">
+                <span style="display: block; margin: auto; text-align: center; font-weight: bold;">
+                    Preço Máximo: {{value | currency:'BRL'}}
+                </span>
+                <mat-slider color="primary" [(ngModel)]="value" thumbLabel style="width: 100%;" tickInterval="50"
+                    min="1" max="8000">
+                </mat-slider>
+            </div>
+
+            <div class="filterItem" style="border: 1px solid rgba(0,0,0,0); border-radius: 10px; padding: 4px;">
+                <span style="display: block; margin: auto; text-align: center; font-weight: bold;">
+                    CATEGORIAS
+                </span>
+
+
+                <mat-select [formControl]="categoriaFormCtrl" (selectionChange)="onCategChange($event)" multiple
+                    style="border: 1px solid black; border-radius: 10px; padding: 7px;">
+                    <mat-option value="Todas">Todas</mat-option>
+                    <mat-optgroup label="Animes e Mangás">
+                        <mat-option value="Bleach">Bleach</mat-option>
+                        <mat-option value="Death Note">Death Note</mat-option>
+                        <mat-option value="Naruto">Naruto</mat-option>
+                        <mat-option value="One Piece">One Piece</mat-option>
+                    </mat-optgroup>
+                    <mat-optgroup label="Cinema e TV">
+                        <mat-option value="Clássicos">Clássicos</mat-option>
+                        <mat-option value="Terror">Terror</mat-option>
+                        <mat-option value="King Kong">King Kong</mat-option>
+                        <mat-option value="Simpson">Simpson</mat-option>
+                    </mat-optgroup>
+                    <mat-optgroup label="DC Comics">
+                        <mat-option value="Aquaman">Aquaman</mat-option>
+                        <mat-option value="Batiman">Batiman</mat-option>
+                        <mat-option value="Liga da Justiça">Liga da Justiça</mat-option>
+                        <mat-option value="Superman">Superman</mat-option>
+                    </mat-optgroup>
+                    <mat-optgroup label="Marvel">
+                        <mat-option value="Capitã Marvel">Capitã Marvel</mat-option>
+                        <mat-option value="Deadpool">Deadpool</mat-option>
+                        <mat-option value="Pantera Negra">Pantera Negra</mat-option>
+                        <mat-option value="Vingadores">Vingadores</mat-option>
+                    </mat-optgroup>
+                </mat-select>
+
+            </div>
         </div>
+
+        <app-carrinho *ngIf="produtoService.produtosCarrinho.length > 0"></app-carrinho>
+
     </div>
 </div>
 

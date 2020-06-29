@@ -3,4 +3,6 @@ export class Produto {
     imgUrl?: String;
     descricao?: String;
     preco?: number;
+    qtd?: number;
+    precoTotal?: number;
 }

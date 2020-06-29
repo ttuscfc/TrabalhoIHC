@@ -15,9 +15,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
+import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { DetalheComponent } from './components/detalhe/detalhe.component';
 
 registerLocaleData(ptBr)
 
@@ -25,6 +31,8 @@ registerLocaleData(ptBr)
   declarations: [
     AppComponent,
     HomeComponent,
+    CarrinhoComponent,
+    DetalheComponent,
 
   ],
   imports: [
@@ -40,7 +48,11 @@ registerLocaleData(ptBr)
     MatAutocompleteModule,
     ReactiveFormsModule,
     NgbModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]

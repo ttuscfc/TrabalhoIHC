@@ -1,0 +1,47 @@
+<div style="background-color: whitesmoke; padding: 12px; border-radius: 15px; margin-top: 10px;">
+    <span
+        style="display: block; font-weight: bold; text-align: center; margin: auto; font-size: 17px; margin-bottom: 10px;">
+        Meu Carrinho
+    </span>
+
+    <div id="scrollDiv" style="max-height: 180px; min-height: 180px; overflow-x: hidden; overflow-y: auto;">
+        <div width="100%" *ngFor="let p of produtoService.produtosCarrinho"
+            style="margin-bottom: 3px; padding-right:2px; border-bottom: 1px solid rgb(179, 179, 179); position: relative;">
+            <table>
+                <tr>
+                    <td rowspan="4">
+                        <img [src]="p.imgUrl" style="height: 50px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{p.nome | slice:0:15}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Qtd.: <input type="number" min="1" max="10" (change)="onQtdChange(p)" [value]="p.qtd"
+                            style="width: 45px; display: inline; border-radius: 5px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{p.precoTotal | currency:'BRL':'symbol':'1.2-2' }}
+                    </td>
+                </tr>
+            </table>
+            <button mat-icon-button (click)="removerProduto(p)" style="position: absolute; top: 15px; right: -4px;"
+                matTooltip="Remover do carrinho">
+                <mat-icon style="color: red;">cancel</mat-icon>
+            </button>
+        </div>
+    </div>
+    <span
+        style="display: block; width: 100%; margin-top: 20px; text-align: center; font-size: 17px; font-weight: bold;">
+        Total: {{getTotal() | currency:'BRL':'symbol':'1.2-2'  }}
+    </span>
+    <button mat-raised-button
+        style="display: block; margin: auto; margin-top: 12px; background-color: #008F97; color: white">
+        FINALIZAR
+    </button>
+</div>
