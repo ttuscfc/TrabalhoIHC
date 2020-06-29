@@ -2,7 +2,12 @@
   <mat-toolbar class="header">
     <table>
       <tr>
-        <td width="15%"><img src="../assets/logo.png" style="height: 120px; display: block; margin-left: 0px;" /></td>
+        <td width="15%">
+          <a routerLink="">
+            <img src="../assets/logo.png" style="height: 120px; display: block; margin-left: 0px;" />
+          </a>
+        </td>
+
         <td>
 
           <input matInput placeholder="Digite aqui o que você precisa" aria-label="Produto" [matAutocomplete]="auto"

@@ -1,0 +1,172 @@
+<table style="width: 100%;">
+    <tr>
+        <td width="10%">
+
+        </td>
+        <td width="65%">
+            <div style="width: 85%; text-align: center; margin:auto; padding: 10px;">
+                <h2>FINALIZAR COMPRA</h2>
+            </div>
+            <mat-horizontal-stepper linear #stepper
+                style="width: 85%; margin: auto; background-color: whitesmoke; border-radius: 18px; margin-bottom: 70px;">
+
+                <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+                    <form [formGroup]="firstFormGroup" style="position: relative;">
+                        <ng-template matStepLabel>Endereço</ng-template>
+                        <h1>Onde devemos entregar?</h1>
+                        <mat-form-field>
+                            <mat-label>CEP</mat-label>
+                            <input (keyup)="buscaCep()" autofocus [dropSpecialCharacters]="false" mask="00.000-000"
+                                id="cep" matInput placeholder="Ex.: 83.070-020" required>
+                        </mat-form-field>
+                        <div *ngIf="cepOk" style="display: inline; padding: 5px; font-size: 13px;">
+                            FRETE: R$ 27,00
+                        </div>
+                        <br />
+                        <mat-form-field *ngIf="cepOk" style="width: 300px;">
+                            <mat-label>Rua</mat-label>
+                            <input matInput type="text" disabled id="rua">
+                        </mat-form-field>
+                        <br />
+                        <mat-form-field *ngIf="cepOk">
+                            <mat-label>Número</mat-label>
+                            <input matInput formControlName="firstCtrl" type="number" placeholder="Ex.: 2104" required>
+                        </mat-form-field>
+                        <br />
+                        <mat-form-field *ngIf="cepOk">
+                            <mat-label>Complemento</mat-label>
+                            <input matInput formControlName="firstCtrl" placeholder="Ex.: Ap 12">
+                        </mat-form-field>
+                        <br />
+                        <mat-form-field *ngIf="cepOk">
+                            <mat-label>Bairro</mat-label>
+                            <input matInput id="bairro" type="text" disabled>
+                        </mat-form-field>
+                        <br />
+                        <mat-form-field *ngIf="cepOk">
+                            <mat-label>Cidade</mat-label>
+                            <input matInput id="cidade" type="text" disabled>
+                        </mat-form-field>
+                        <mat-form-field *ngIf="cepOk">
+                            <mat-label>Estado</mat-label>
+                            <input matInput id="estado" type="text" disabled>
+                        </mat-form-field>
+                        <div style="position: relative;">
+                            <a routerLink="">
+                                <button mat-button matStepperPrevious
+                                    style="background-color: #008F97; color: white;">VOLTAR ÀS COMPRAS</button>
+                            </a>
+                            <button mat-button matStepperNext *ngIf="cepOk"
+                                style=" background-color: #008F97; color: white; position: absolute; bottom: 0px; right: 0px; display: block;">CONTINUAR</button>
+                        </div>
+
+                    </form>
+                </mat-step>
+
+                <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+                    <form [formGroup]="secondFormGroup" style="position: relative;">
+                        <ng-template matStepLabel>Recebedor</ng-template>
+                        <h1>Quem irá receber?</h1>
+                        <mat-form-field>
+                            <mat-label>Nome</mat-label>
+                            <input matInput formControlName="secondCtrl" required>
+                        </mat-form-field>
+                        <br />
+                        <mat-form-field>
+                            <mat-label>Telefone</mat-label>
+                            <input matInput formControlName="secondCtrl" mask="(00) 00000-0000" required>
+                        </mat-form-field>
+                        <div>
+
+                            <button mat-button matStepperPrevious
+                                style="background-color: #008F97; color: white;">VOLTAR</button>
+
+                            <button
+                                style="background-color: #008F97; color: white; position: absolute; bottom: 0px; right: 0px; display: block;"
+                                mat-button matStepperNext>CONTINUAR</button>
+                        </div>
+                    </form>
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>Pagamento</ng-template>
+                    <h1>Como deseja pagar?</h1>
+                    <mat-radio-group [(ngModel)]="metodoPagamento">
+                        <mat-radio-button class="example-radio-button" value="boleto">
+                            Boleto de Cobrança
+                        </mat-radio-button><br />
+                        <mat-radio-button class="example-radio-button" value="credito">
+                            Cartão de Crédito
+                        </mat-radio-button>
+                    </mat-radio-group>
+                    <form [formGroup]="secondFormGroup" style="position: relative;">
+                        <div *ngIf="metodoPagamento == 'boleto'">
+                            <button
+                                style="background-color: #008F97; color: white; position: absolute; bottom: 0px; right: 0px; display: block;"
+                                mat-button matStepperNext>GERAR BOLETO</button>
+                        </div>
+                        <div *ngIf="metodoPagamento == 'credito'">
+                            <mat-form-field>
+                                <mat-label>Número do Cartão</mat-label>
+                                <input matInput required>
+                            </mat-form-field>
+                            <br />
+                            <mat-form-field>
+                                <mat-label>Data de Validade</mat-label>
+                                <input matInput required>
+                            </mat-form-field>
+                            <br />
+                            <mat-form-field>
+                                <mat-label>Código de Verificação (CVC)</mat-label>
+                                <input matInput required>
+                            </mat-form-field>
+                            <button
+                                style="background-color: #008F97; color: white; position: absolute; bottom: 0px; right: 0px; display: block;"
+                                mat-button matStepperNext>EFETUAR PAGAMENTO</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Pronto!</ng-template>
+                    <div *ngIf="metodoPagamento == 'credito'">
+                        <h2>TUDO PRONTO!</h2>
+                        Seu pedido será entregue em breve.
+                        Clique no botão abaixo para baixar o comprovante de venda.
+                        <a target="_blank" href="../../../assets/recibo.pdf">
+                            <button mat-button
+                                style="margin: auto; margin-top: 50px; margin-bottom: 100px; background-color: #008F97; color: white; display: block;">
+                                COMPROVANTE DE VENDA
+                            </button>
+                        </a>
+                    </div>
+                    <div *ngIf="metodoPagamento == 'boleto'">
+                        <h2>TUDO PRONTO!</h2>
+                        Seu pedido será liberado para entrega mediante o pagamento do boleto.
+                        <br />
+                        Clique no botão abaixo para imprimir o boleto.
+                        <br /><br />
+                        <p align="center"
+                            style="font-weight: 400; background-color: orange; padding: 7px; font-size: 16px;">
+                            34191.79001 01043.510047
+                            91020.150008 8 83010022400
+                        </p>
+                        <a target="_blank" href="../../../assets/Boleto_MRColecionaveis.pdf">
+                            <button mat-button
+                                style="margin: auto; margin-top: 25px; margin-bottom: 100px; background-color: #008F97; color: white; display: block;">
+                                IMPRIMIR BOLETO
+                            </button>
+                        </a>
+
+                    </div>
+
+                </mat-step>
+
+            </mat-horizontal-stepper>
+        </td>
+        <td width="25%">
+            <div style="width: 90%;">
+                <app-carrinho [mostrarFinalizar]="false" [frete]="produtoService.frete"></app-carrinho>
+            </div>
+        </td>
+    </tr>
+</table>

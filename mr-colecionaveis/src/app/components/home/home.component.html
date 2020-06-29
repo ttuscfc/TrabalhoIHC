@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <app-carrinho *ngIf="produtoService.produtosCarrinho.length > 0"></app-carrinho>
+        <app-carrinho *ngIf="produtoService.produtosCarrinho.length > 0" [frete]="produtoService.frete"></app-carrinho>
 
     </div>
 </div>

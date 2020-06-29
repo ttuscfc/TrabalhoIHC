@@ -1,7 +1,7 @@
 <div style="background-color: whitesmoke; padding: 12px; border-radius: 15px; margin-top: 10px;">
     <span
-        style="display: block; font-weight: bold; text-align: center; margin: auto; font-size: 17px; margin-bottom: 10px;">
-        Meu Carrinho
+        style="display: block; font-weight: bold; text-align: center; margin: auto; font-size: 14px; margin-bottom: 10px;">
+        MEU CARRINHO
     </span>
 
     <div id="scrollDiv" style="max-height: 180px; min-height: 180px; overflow-x: hidden; overflow-y: auto;">
@@ -35,13 +35,28 @@
                 <mat-icon style="color: red;">cancel</mat-icon>
             </button>
         </div>
+        <div width="100%" *ngIf="frete > 0"
+            style="margin-bottom: 3px; padding-right:2px; border-bottom: 1px solid rgb(179, 179, 179); position: relative;">
+            <table>
+                <tr>
+                    <td>
+                        <div style="text-align: center; display: block; margin: auto; line-height: 35px; height: 35px;">
+                            FRETE: {{frete | currency:'BRL':'symbol':'1.2-2'}}
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
     </div>
     <span
         style="display: block; width: 100%; margin-top: 20px; text-align: center; font-size: 17px; font-weight: bold;">
         Total: {{getTotal() | currency:'BRL':'symbol':'1.2-2'  }}
     </span>
-    <button mat-raised-button
-        style="display: block; margin: auto; margin-top: 12px; background-color: #008F97; color: white">
-        FINALIZAR
-    </button>
+    <a routerLink="finalizar">
+        <button mat-raised-button (click)="goFinalizar()" *ngIf="mostrarFinalizar"
+            style="text-decoration: none; display: block; margin: auto; margin-top: 12px; background-color: #008F97; color: white">
+            FINALIZAR
+        </button>
+    </a>
 </div>

@@ -1,5 +1,5 @@
 import { ProdutoService } from './../../services/produto.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Produto } from 'src/app/models/produto';
 
 @Component({
@@ -8,6 +8,9 @@ import { Produto } from 'src/app/models/produto';
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
+
+  @Input() mostrarFinalizar = true;
+  @Input() frete = 0;
 
   constructor(public produtoService: ProdutoService) { }
 
@@ -20,6 +23,8 @@ export class CarrinhoComponent implements OnInit {
       p.precoTotal = p.preco * p.qtd;
       total += (p.precoTotal);
     });
+
+    total += this.frete;
 
     // Desce a scroll bar
     document.getElementById("scrollDiv").scrollTop = document.getElementById("scrollDiv").scrollHeight;
@@ -37,6 +42,10 @@ export class CarrinhoComponent implements OnInit {
 
       }
     });
+  }
+
+  goFinalizar() {
+
   }
 
 }

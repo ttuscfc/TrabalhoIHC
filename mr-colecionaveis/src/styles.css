@@ -45,3 +45,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin:auto !important;
     text-align: center !important;
 }
+
+.mat-step-icon {
+  background-color: orange !important;
+}
