@@ -32,7 +32,8 @@
 
         </td>
         <td width="15%">
-          <button (click)="abirLogin()" mat-button>LOGIN</button>
+          <button *ngIf="!loginService.isLogged" (click)="abirLogin()" mat-button>ENTRAR</button>
+          <button *ngIf="loginService.isLogged" (click)="sair()" mat-button>SAIR</button>
         </td>
       </tr>
     </table>

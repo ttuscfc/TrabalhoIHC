@@ -1,58 +1,103 @@
-<div style="width: 60%; margin: auto;">
-    <div style="width: 100%; text-align: center; padding: 30px;">
-        <h1>HISTÓRICO DE PEDIDOS POR CLIENTE</h1>
-        <input type="text" #nomeCliente id="nomeCliente" placeholder="Nome do Cliente" (keyup)="filtrarCliente(nomeCliente.value)" />
-    </div>
-    <mat-accordion *ngFor="let c of getClientes()">
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-            <mat-panel-title>
-                {{c.nome}}
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-        
 
-        <mat-accordion *ngFor="let p of c.pedidos">
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Código do Pedido: {{p.id}}
-                </mat-panel-title>
-                <mat-panel-description>
-                    {{p.status}} na data: {{p.dt}}
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p><b>Endereço</b>: {{c.endereco}}</p>
-              <p><b>Nome</b>: {{c.nome}}</p>
-              <p><b>Data da Entrega</b>: {{p.dt}}</p>
-              <p><b>Valor total</b>: {{p.valorTotal | currency:'BRL':'symbol':'1.2-2'}}</p>
-              <br/>
-              <b><b>Itens Comprados</b>:</b>
-              <table border='1' style="width: 50%; border-color: whitesmoke; border-style: dashed;">
-                  <tr *ngFor="let prod of p.itens">
-                      <td>
-                          <img [src]="prod.imgUrl" width="90px" />
-                      </td>
-                      <td>
-                          {{prod.nome | slice:0:15}}
-                      </td>
-                      <td>
-                        Qtd.: {{prod.qtd}}
-                      </td>
-                      <td>
-                        {{prod.preco | currency:'BRL':'symbol':'1.2-2'}}
-                    </td>
-                  </tr>
-              </table>
-              <a target="_blank" href="../../../assets/recibo.pdf">
-                <button mat-button
-                    style="margin: auto; margin-top: 10px; margin-bottom: 10px; background-color: #008F97; color: white; display: block;">
-                    IMPRIMIR COMPROVANTE DE VENDA
-                </button>
-            </a>
-            </mat-expansion-panel>
-          </mat-accordion>
-        </mat-expansion-panel>
-    </mat-accordion>
-</div>
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Histórico de Pedidos">   
 
+            <div style="width: 60%; margin: auto;">
+                <div style="width: 100%; text-align: center; padding: 30px;">
+                    <h1>HISTÓRICO DE PEDIDOS POR CLIENTE</h1>
+                    <input type="text" #nomeCliente id="nomeCliente" placeholder="Nome do Cliente" (keyup)="filtrarCliente(nomeCliente.value)" />
+                </div>
+                <mat-accordion *ngFor="let c of getClientes()">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{c.nome}}
+                          </mat-panel-title>
+                        </mat-expansion-panel-header>
+                    
+            
+                    <mat-accordion *ngFor="let p of c.pedidos">
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              Código do Pedido: {{p.id}}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{p.status}} na data: {{p.dt}}
+                            </mat-panel-description>
+                          </mat-expansion-panel-header>
+                          <p><b>Endereço</b>: {{c.endereco}}</p>
+                          <p><b>Nome</b>: {{c.nome}}</p>
+                          <p><b>Data da Entrega</b>: {{p.dt}}</p>
+                          <p><b>Valor total</b>: {{p.valorTotal | currency:'BRL':'symbol':'1.2-2'}}</p>
+                          <br/>
+                          <b><b>Itens Comprados</b>:</b>
+                          <table border='1' style="width: 50%; border-color: whitesmoke; border-style: dashed;">
+                              <tr *ngFor="let prod of p.itens">
+                                  <td>
+                                      <img [src]="prod.imgUrl" width="90px" />
+                                  </td>
+                                  <td>
+                                      {{prod.nome | slice:0:15}}
+                                  </td>
+                                  <td>
+                                    Qtd.: {{prod.qtd}}
+                                  </td>
+                                  <td>
+                                    {{prod.preco | currency:'BRL':'symbol':'1.2-2'}}
+                                </td>
+                              </tr>
+                          </table>
+                          <a target="_blank" href="../../../assets/recibo.pdf">
+                            <button mat-button
+                                style="margin: auto; margin-top: 10px; margin-bottom: 10px; background-color: #008F97; color: white; display: block;">
+                                IMPRIMIR COMPROVANTE DE VENDA
+                            </button>
+                        </a>
+                        </mat-expansion-panel>
+                      </mat-accordion>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div> 
+
+        </mat-tab>
+            <mat-tab label="Cadastrar Novo Produto">
+            <div style="margin: auto; width: 100%; text-align: center; padding: 30px;">
+                <h1>CADASTRO DE PRODUTO</h1>
+                <table style="margin: auto; width: 70%; height: 200px; padding: 50px; text-align: left;">
+                    <tr>
+                        <td rowspan="4" width="50%" >
+                            <div style="background-color: whitesmoke; position: relative; margin:auto; margin-right: 10px; height: 320px; width: 320px;">
+                                <img [src]="theImg" style="height: 320px;" />
+                                <span style="position: absolute; top: 0px; left: 0px">IMAGEM</span> 
+                                <input type="file" (change)="onFileSelected($event)" style="position: absolute; bottom: 0px; left: 0px;" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                            Nome: <br/>
+                            <input id="nome" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                            Descrição:<br/>
+                            <textarea id="descricao" cols="30" rows="4"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                            Preço (R$):<br/>
+                            <input id="preco" type="number" />
+                        </td>
+                    </tr>
+
+                </table>
+
+                <br />
+
+                <button (click)="cadastrar()" mat-raised-button style="color: white; background-color: #008F97;">CADASTRAR PRODUTO</button>
+            </div>
+        </mat-tab>
+</mat-tab-group>

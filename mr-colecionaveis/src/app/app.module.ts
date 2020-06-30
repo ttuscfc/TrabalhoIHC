@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
@@ -44,8 +45,7 @@ registerLocaleData(ptBr)
     LoginComponent,
     FinalizarComponent,
     ClientePageComponent,
-    AdminComponent,
-
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +68,9 @@ registerLocaleData(ptBr)
     MatStepperModule,
     NgxMaskModule.forRoot(),
     MatRadioModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule,
+
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]

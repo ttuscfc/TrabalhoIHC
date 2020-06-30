@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { LoginService } from './services/login.service';
 import { LoginComponent } from './components/login/login.component';
 import { ProdutoService } from './services/produto.service';
 import { Component } from '@angular/core';
@@ -20,7 +22,7 @@ export class AppComponent {
   filteredProdutos: Observable<Produto[]>;
 
 
-  constructor(public produtoService: ProdutoService, public snack: MatSnackBar, public dialog: MatDialog) {
+  constructor(public router: Router, public loginService: LoginService, public produtoService: ProdutoService, public snack: MatSnackBar, public dialog: MatDialog) {
     this.filteredProdutos = this.produtoCtrl.valueChanges
       .pipe(
         startWith(''),
@@ -63,6 +65,11 @@ export class AppComponent {
 
   abirLogin() {
     this.dialog.open(LoginComponent);
+  }
+
+  sair() {
+    this.loginService.isLogged = false;
+    this.router.navigate(["/"]);
   }
 
 }

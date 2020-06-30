@@ -49,3 +49,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-step-icon {
   background-color: orange !important;
 }
+
+.mat-ink-bar {
+  background-color: orange !important;
+}
+
+.mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate {
+  background-color: orange !important;
+}
