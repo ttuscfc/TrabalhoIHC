@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
@@ -28,7 +29,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DetalheComponent } from './components/detalhe/detalhe.component';
 import { LoginComponent } from './components/login/login.component';
 import { FinalizarComponent } from './components/finalizar/finalizar.component';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ClientePageComponent } from './components/cliente-page/cliente-page.component';
+import { AdminComponent } from './components/admin/admin.component'
 
 registerLocaleData(ptBr)
 
@@ -40,6 +43,8 @@ registerLocaleData(ptBr)
     DetalheComponent,
     LoginComponent,
     FinalizarComponent,
+    ClientePageComponent,
+    AdminComponent,
 
   ],
   imports: [
@@ -62,7 +67,8 @@ registerLocaleData(ptBr)
     MatDialogModule,
     MatStepperModule,
     NgxMaskModule.forRoot(),
-    MatRadioModule
+    MatRadioModule,
+    MatExpansionModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]

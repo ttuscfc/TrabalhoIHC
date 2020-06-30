@@ -961,6 +961,7 @@ export class ProdutoService {
 
   public frete: number = 0;
 
+
   public produtosCarrinho: Produto[] = [];
 
 }

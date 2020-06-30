@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -7,17 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit(): void {
   }
 
   entrar(u: string, s: string) {
     if (u.toLowerCase().includes('cli')) {
-      alert("CLIENTE");
+      this.router.navigate(['/historicoPedidos']);
+      this.dialogRef.close();
     }
     else {
-      alert("FUNCIONARIO")
+      this.router.navigate(['/admin']);
+      this.dialogRef.close();
     }
   }
 

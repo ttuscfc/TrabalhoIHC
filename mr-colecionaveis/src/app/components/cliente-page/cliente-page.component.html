@@ -1,0 +1,50 @@
+<div style="width: 70%; margin: auto; margin-bottom: 200px;">
+    <div style="margin: auto; text-align: center; padding: 40px;">
+        <h1>MEU HISTÓRICO DE COMPRAS</h1>
+    </div>
+    <div *ngFor="let p of pedidoService.pedidos">
+        <mat-accordion>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Código do Pedido: {{p.id}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{p.status}} na data: {{p.dt}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p><b>Endereço</b>: {{p.endereco}}</p>
+              <p><b>Nome</b>: {{p.nomeCliente}}</p>
+              <p><b>Data da Entrega</b>: {{p.dt}}</p>
+              <p><b>Valor total</b>: {{p.valorTotal | currency:'BRL':'symbol':'1.2-2'}}</p>
+              <br/>
+              <b><b>Itens Comprados</b>:</b>
+              <table border='1' style="width: 50%; border-color: whitesmoke; border-style: dashed;">
+                  <tr *ngFor="let prod of p.itens">
+                      <td>
+                          <img [src]="prod.imgUrl" width="90px" />
+                      </td>
+                      <td>
+                          {{prod.nome | slice:0:15}}
+                      </td>
+                      <td>
+                        Qtd.: {{prod.qtd}}
+                      </td>
+                      <td>
+                        {{prod.preco | currency:'BRL':'symbol':'1.2-2'}}
+                    </td>
+                  </tr>
+              </table>
+              <a target="_blank" href="../../../assets/recibo.pdf">
+                <button mat-button
+                    style="margin: auto; margin-top: 10px; margin-bottom: 10px; background-color: #008F97; color: white; display: block;">
+                    IMPRIMIR COMPROVANTE DE VENDA
+                </button>
+            </a>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </div>
+</div>
+
+
