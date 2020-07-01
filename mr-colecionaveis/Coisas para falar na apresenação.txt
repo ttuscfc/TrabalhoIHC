@@ -2,5 +2,4 @@
 
 - Notamos que o nosso publico alvo gosta de especular e buscar coisas que eles conhecem. Por isso colocamos uma barra de pesquisa que já mostra o produto instantaneamente.
 
-
-ng add @ng-bootstrap/ng-bootstrap
+- Para facilitar a compra, fizemos com que o usuario quase nunca precisasse mudar de tela.

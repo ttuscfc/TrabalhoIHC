@@ -74,7 +74,7 @@ export class ClienteService {
       endereco: 'Rua João, 120 - Bairro Agua Verde - Curitiba PR',
       pedidos: [
         {
-          id: 3,
+          id: 4,
           dt: '12/07/2020',
           nomeCliente: 'Rafael Bini',
           valorTotal: 1407,
@@ -103,7 +103,7 @@ export class ClienteService {
         },
 
         {
-          id: 4,
+          id: 3,
           dt: '21/03/2020',
           nomeCliente: 'Rafael Bini',
           valorTotal: 2693,
@@ -133,7 +133,7 @@ export class ClienteService {
       endereco: 'Rua Licra, 2 - Bairro Portão - Curitiba PR',
       pedidos: [
         {
-          id: 5,
+          id: 6,
           dt: '12/07/2020',
           nomeCliente: 'Rafael Bini',
           valorTotal: 1407,
@@ -162,7 +162,7 @@ export class ClienteService {
         },
 
         {
-          id: 6,
+          id: 5,
           dt: '21/03/2020',
           nomeCliente: 'Rafael Bini',
           valorTotal: 2693,

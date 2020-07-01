@@ -107,18 +107,23 @@
                         </div>
                         <div *ngIf="metodoPagamento == 'credito'">
                             <mat-form-field>
+                                <mat-label>Nome no Cartão</mat-label>
+                                <input maxlength="20" matInput required>
+                            </mat-form-field>
+                            <br />
+                            <mat-form-field>
                                 <mat-label>Número do Cartão</mat-label>
-                                <input matInput required>
+                                <input mask="0000 0000 0000 0000" matInput required>
                             </mat-form-field>
                             <br />
                             <mat-form-field>
                                 <mat-label>Data de Validade</mat-label>
-                                <input matInput required>
+                                <input mask="00/0000" matInput required>
                             </mat-form-field>
                             <br />
                             <mat-form-field>
                                 <mat-label>Código de Verificação (CVC)</mat-label>
-                                <input matInput required>
+                                <input matInput mask="000" required>
                             </mat-form-field>
                             <button
                                 style="background-color: #008F97; color: white; position: absolute; bottom: 0px; right: 0px; display: block;"
