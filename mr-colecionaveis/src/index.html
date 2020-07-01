@@ -10,18 +10,18 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEcQiZeaNe8KbTRLhvBSEqFxQvIglGDsM&callback=initMap">
-  </script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEcQiZeaNe8KbTRLhvBSEqFxQvIglGDsM&callback=initMap">
+    </script>
   <script>
     // Initialize and add the map
     function initMap() {
       // The location of Uluru
-      var uluru = {lat: -25.4569316, lng: -49.236719};
+      var uluru = { lat: -25.4569316, lng: -49.236719 };
       // The map, centered at Uluru
       var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 18, center: uluru});
+        document.getElementById('map'), { zoom: 18, center: uluru });
       // The marker, positioned at Uluru
-      var marker = new google.maps.Marker({position: uluru, map: map});
+      var marker = new google.maps.Marker({ position: uluru, map: map });
     }
   </script>
 </head>
@@ -29,45 +29,86 @@
 <body class="mat-typography">
   <app-root></app-root>
   <div style="width: 100%;  background-color: whitesmoke; position: relative; padding: 50px; padding-bottom: 100px;">
-    <hr/>
+    <hr />
     <h1>SOBRE NÓS</h1>
     <table style="width: 100%;">
       <tr>
         <td colspan="2">
-          <p>A MR Colecionáveis é uma loja especializada na venda de artigos colecionáveis pela internet 
-            e tem alcançado cada vez mais clientes em todas as regiões do Brasil, 
-            sendo considerada uma referência nacional e 
+          <p>A MR Colecionáveis é uma loja especializada na venda de artigos colecionáveis pela internet
+            e tem alcançado cada vez mais clientes em todas as regiões do Brasil,
+            sendo considerada uma referência nacional e
             uma das lojas mais respeitadas no segmento de colecionáveis. </p>
-            <p>Somos fanáticos pelo que fazemos e gostamos de fazer tudo bem feito para garantir que, 
+          <p>Somos fanáticos pelo que fazemos e gostamos de fazer tudo bem feito para garantir que,
             ao comprar conosco, você tenha sempre a melhor experiência possível.</p>
-            <p>Você compra seu produto e recebe em casa, com garantia, nota fiscal e total segurança.</p>
-            
+          <p>Você compra seu produto e recebe em casa, com garantia, nota fiscal e total segurança.</p>
+
+          <p>No vídeo abaixo são apresentadas todas as funcionalidades da nossa loja virtual. Confira:</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <iframe width="430" height="242" style="border: 2px solid orange; border-radius: 2px;"
+            src="https://www.youtube.com/embed/uHc12bg9jFU?autoplay=1">
+          </iframe>
+        </td>
+        <td valign="top">
+          O vídeo inicia apresentando a logo da loja. Em seguida, uma gravação da tela de um usuário apresenta as
+          principais funcionalidades da loja que aparecem na seguinte ordem:
+          <ul>
+            <li>Variedade de Produtos</li>
+            <li>Filtro de Produtos</li>
+            <li>Carrinho Dinâmico</li>
+            <li>Compra Rápida</li>
+            <li>Compra Confiável</li>
+            <li>Histórico de Vendas</li>
+            <li>Cadastro de Produto</li>
+            <li>Área do Cliente</li>
+            <li>Barra de Busca</li>
+          </ul>
         </td>
       </tr>
       <tr>
         <td colspan="4">
           <hr />
           <h1>DESENVOLVEDORES</h1>
-        </td>        
+          <p>A nossa equipe de desenvolvedores é formada por uma dupla de estudantes.</p>
+          <p>Eles estão cursando Tecnologia em Análise e
+            Desenvolvimento de
+            Sistemas (TADS) na UFPR.</p>
+        </td>
       </tr>
       <tr>
         <td width="50%">
           <div style="display: flex;">
-          <img src="../../assets/bini.jpeg" width="160px" style="display: block;"   />
-          <ul>
-            <li><b>Nome</b>: Rafael Bini</li>
-            <li><b>Telefone</b>: (41) 98876-5822</li>
-            <li><b>Email</b>: rfabini1996@gmail.com</li>
-          </ul>
-        </div>
+            <img src="../../assets/bini.jpeg" width="160px" height="170px"
+              style="display: block; border: 2px solid orange; border-radius: 5px;" />
+            <ul>
+              <li><b>Nome</b>: Rafael Bini</li>
+              <li><b>Telefone</b>: (41) 98876-5822</li>
+              <li><b>Email</b>: rfabini1996@gmail.com</li>
+              <li><b>Experiência</b>: </li>
+              <ul>
+                <li>2018 - Darnel Embalagens - Suporte Técnico - 1 Ano</li>
+                <li>2019 - Banco Bradesco - Desenvolvedor - 1 Ano</li>
+                <li>2020 - Bradesco Seguros - Desenvolvedor - 6 meses</li>
+              </ul>
+            </ul>
+          </div>
         </td>
         <td width="50%">
           <div style="display: flex;">
-            <img src="../../assets/matheus.jpg" width="160px" style="display: block;" />
-            <ul style="display: block;" >
+            <img src="../../assets/matheus.jpg" width="160px" height="170px"
+              style="display: block; border: 2px solid orange; border-radius: 5px;" />
+            <ul style="display: block;">
               <li><b>Nome</b>: Matheus Leonardo Cabral</li>
               <li><b>Telefone</b>: (41) 98276-1822</li>
               <li><b>Email</b>: ml.cabral@outlook.com</li>
+              <li><b>Experiência</b>: </li>
+              <ul>
+                <li>2018 - Darnel Embalagens - Suporte Técnico - 1 Ano</li>
+                <li>2019 - Banco Bradesco - Desenvolvedor - 1 Ano</li>
+                <li>2020 - Bradesco Seguros - Desenvolvedor - 6 meses</li>
+              </ul>
             </ul>
           </div>
 
@@ -75,8 +116,8 @@
 
       </tr>
       <tr>
-        <td colspan="4" >
-          <hr/>
+        <td colspan="4">
+          <hr />
           <h1>FALE CONOSCO</h1>
         </td>
       </tr>
@@ -92,10 +133,10 @@
         </td>
 
       </tr>
-    </table>  
+    </table>
 
   </div>
-  
+
 </body>
 
 </html>
